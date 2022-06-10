@@ -1,0 +1,40 @@
+<table id="product-table">
+  <thead>
+  <tr id="product-row">
+    <th>NO</th>
+    <th>Selected Product</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Type</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each products as |product index|}}
+    <tr>
+      <td>{{index}}</td>
+
+      <td><input type="checkbox"
+                 onclick={{action 'onCheckBoxRowClick' value='target'}}
+                 value={{product.name}}
+                 disabled={{if (gt product.price 500) true false}}></td>
+
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.type}}</td>
+      <td>
+        {{#if (not-eq product.type 'appearal')}}
+          <button onclick={{action 'onDelecte' value='target'}}
+                  value={{product.name}}>Delete
+          </button>
+        {{/if}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+{{product-info/product-view
+  selectedProducts =selectedProducts
+}}

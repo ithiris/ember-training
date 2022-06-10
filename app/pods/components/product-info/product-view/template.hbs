@@ -1,0 +1,22 @@
+<table id="product-table">
+  <caption><h3>Total</h3></caption>
+  <tr id="product-row">
+    <th></th>
+    <th>Product Name</th>
+    <th> Product Price</th>
+  </tr>
+  {{#each selectedProducts as |product index|}}
+    <tr>
+      <td>{{index}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+    </tr>
+
+  {{/each}}
+
+  <tr>
+    <th> Total</th>
+    <th></th>
+    <th>{{TotalPrice}}</th>
+  </tr>
+</table>
